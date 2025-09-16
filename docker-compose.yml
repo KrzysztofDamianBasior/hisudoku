@@ -1,0 +1,16 @@
+# docker-compose up --force-recreate
+services:
+  hisudoku:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILD_TAG: local
+        VERSION: local
+#    environment:
+#      NODE_ENV: dev
+    container_name: hisudoku
+    restart: unless-stopped
+    ports:
+      - "80:80"
+
